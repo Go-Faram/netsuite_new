@@ -1,0 +1,260 @@
+module NetSuiteNew
+  module Records
+    class LotNumberedInventoryItem
+      include Support::Fields
+      include Support::RecordRefs
+      include Support::Records
+      include Support::Actions
+      include Namespaces::ListAcct
+
+      # http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_2/schema/record/lotnumberedinventoryitem.html
+
+      field :bin_number_list, BinNumberList
+      field :custom_field_list, CustomFieldList
+      field :item_number_options_list, RecordRefList
+      field :item_ship_method_list, RecordRefList
+      field :item_vendor_list, ItemVendorList
+      field :locations_list, LocationsList
+      field :matrix_option_list, MatrixOptionList
+      field :pricing_matrix, PricingMatrix
+      field :subsidiary_list, RecordRefList
+      # TODO: field :accounting_book_detail_list, ItemAccountingBookDetailList
+      # TODO: field :hierarchy_versions_list, LotNumberedInventoryItemHierarchyVersionsList
+      # TODO: field :item_options_list, ItemOptionsList
+      # TODO: field :numbers_list, LotNumberedInventoryItemNumbersList
+      # TODO: field :presentation_item_list, PresentationItemList
+      # TODO: field :product_feed_list, ProductFeedList
+      # TODO: field :site_category_list, SiteCategoryList
+      field :translations_list, TranslationList
+
+      actions :get, :get_deleted, :get_list, :add, :delete, :search, :update, :upsert, :update_list
+
+      record_refs :alternate_demand_source_item,
+                  :asset_account,
+                  :bill_exch_rate_variance_acct,
+                  :billing_schedule,
+                  :bill_price_variance_acct,
+                  :bill_qty_variance_acct,
+                  :klass,
+                  :cogs_account,
+                  :consumption_unit,
+                  :cost_category,
+                  :create_revenue_plans_on,
+                  :custom_form,
+                  :default_item_ship_method,
+                  :deferred_revenue_account,
+                  :demand_source,
+                  :department,
+                  :dropship_expense_account,
+                  :gain_loss_account,
+                  :income_account,
+                  :interco_cogs_account,
+                  :interco_income_account,
+                  :issue_product,
+                  :item_revenue_category,
+                  :location,
+                  :parent,
+                  :planning_item_category,
+                  :preferred_location,
+                  :pricing_group,
+                  :purchase_price_variance_acct,
+                  :purchase_tax_code,
+                  :purchase_unit,
+                  :quantity_pricing_schedule,
+                  :revenue_allocation_group,
+                  :revenue_recognition_rule,
+                  :rev_rec_forecast_rule,
+                  :rev_rec_schedule,
+                  :sales_tax_code,
+                  :sale_unit,
+                  :secondary_base_unit,
+                  :secondary_consumption_unit,
+                  :secondary_purchase_unit,
+                  :secondary_sale_unit,
+                  :secondary_stock_unit,
+                  :secondary_units_type,
+                  :ship_package,
+                  :soft_descriptor,
+                  :stock_unit,
+                  :store_display_image,
+                  :store_display_thumbnail,
+                  :store_item_template,
+                  :supply_lot_sizing_method,
+                  :supply_replenishment_method,
+                  :supply_type,
+                  :tax_schedule,
+                  :units_type,
+                  :vendor
+
+      fields :auto_lead_time,
+            :auto_preferred_stock_level,
+            :auto_reorder_point,
+            :available_to_partners,
+            :average_cost,
+            :backward_consumption_days,
+            :conversion_rate,
+            :copy_description,
+            :cost,
+            :cost_estimate,
+            :cost_estimate_type,
+            :costing_method,
+            :costing_method_display,
+            :cost_units,
+            :country_of_manufacture,
+            :created_date,
+            :currency,
+            :default_return_cost,
+            :demand_modifier,
+            :demand_time_fence,
+            :direct_revenue_posting,
+            :display_name,
+            :dont_show_price,
+            :enable_catch_weight,
+            :enforce_min_qty_internally,
+            :exclude_from_sitemap,
+            :expiration_date,
+            :featured_description,
+            :fixed_lot_size,
+            :forward_consumption_days,
+            :future_horizon,
+            :handling_cost,
+            :handling_cost_units,
+            :hazmat_hazard_class,
+            :hazmat_id,
+            :hazmat_item_units,
+            :hazmat_item_units_qty,
+            :hazmat_packing_group,
+            :hazmat_shipping_name,
+            :include_children,
+            :invt_classification,
+            :invt_count_interval,
+            :is_donation_item,
+            :is_drop_ship_item,
+            :is_gco_compliant,
+            :is_hazmat_item,
+            :is_inactive,
+            :is_online,
+            :is_special_order_item,
+            :is_store_pickup_allowed,
+            :is_taxable,
+            :item_carrier,
+            :item_id,
+            :last_invt_count_date,
+            :last_modified_date,
+            :last_purchase_price,
+            :lead_time,
+            :lower_warning_limit,
+            :manufacturer,
+            :manufacturer_addr1,
+            :manufacturer_city,
+            :manufacturer_state,
+            :manufacturer_tariff,
+            :manufacturer_tax_id,
+            :manufacturer_zip,
+            :match_bill_to_receipt,
+            :matrix_item_name_template,
+            :matrix_type,
+            :max_donation_amount,
+            :maximum_quantity,
+            :meta_tag_html,
+            :minimum_quantity,
+            :minimum_quantity_units,
+            :mpn,
+            :mult_manufacture_addr,
+            :nex_tag_category,
+            :next_invt_count_date,
+            :no_price_message,
+            :offer_support,
+            :on_hand_value_mli,
+            :on_special,
+            :out_of_stock_behavior,
+            :out_of_stock_message,
+            :overall_quantity_pricing_type,
+            :page_title,
+            :periodic_lot_size_days,
+            :periodic_lot_size_type,
+            :preference_criterion,
+            :preferred_stock_level,
+            :preferred_stock_level_days,
+            :preferred_stock_level_units,
+            :prices_include_tax,
+            :producer,
+            :purchase_description,
+            :purchase_order_amount,
+            :purchase_order_quantity,
+            :purchase_order_quantity_diff,
+            :quantity_available,
+            :quantity_back_ordered,
+            :quantity_committed,
+            :quantity_on_hand,
+            :quantity_on_hand_units,
+            :quantity_on_order,
+            :quantity_reorder_units,
+            :rate,
+            :receipt_amount,
+            :receipt_quantity,
+            :receipt_quantity_diff,
+            :related_items_description,
+            :reorder_multiple,
+            :reorder_point,
+            :reorder_point_units,
+            :reschedule_in_days,
+            :reschedule_out_days,
+            :round_up_as_component,
+            :safety_stock_level,
+            :safety_stock_level_days,
+            :safety_stock_level_units,
+            :sales_description,
+            :schedule_b_code,
+            :schedule_b_number,
+            :schedule_b_quantity,
+            :search_keywords,
+            :seasonal_demand,
+            :serial_numbers,
+            :ship_individually,
+            :shipping_cost,
+            :shipping_cost_units,
+            :shopping_dot_com_category,
+            :shopzilla_category_id,
+            :show_default_donation_amount,
+            :sitemap_priority,
+            :specials_description,
+            :stock_description,
+            :store_description,
+            :store_detailed_description,
+            :store_display_name,
+            :supply_time_fence,
+            :total_value,
+            :track_landed_cost,
+            :transfer_price,
+            :upc_code,
+            :upper_warning_limit,
+            :url_component,
+            :use_bins,
+            :use_marginal_rates,
+            :vendor_name,
+            :vsoe_deferral,
+            :vsoe_delivered,
+            :vsoe_permit_discount,
+            :vsoe_price,
+            :vsoe_sop_group,
+            :weight,
+            :weight_unit,
+            :weight_units
+
+      attr_reader :internal_id
+      attr_accessor :external_id
+
+      def initialize(attributes = {})
+        @internal_id = attributes.delete(:internal_id) || attributes.delete(:@internal_id)
+        @external_id = attributes.delete(:external_id) || attributes.delete(:@external_id)
+        initialize_from_attributes_hash(attributes)
+      end
+
+      def self.search_class_name
+        "Item"
+      end
+
+    end
+  end
+end
